@@ -1,0 +1,10 @@
+FROM node:alpine
+WORKDIR /usr/src
+COPY package.json ./
+RUN npm install -g nodemon && npm install
+
+COPY development.env development.env
+COPY src ./src
+
+CMD npm run start
+EXPOSE 3001

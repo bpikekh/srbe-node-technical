@@ -1,0 +1,25 @@
+{
+  "name": "srbe-node-technical",
+  "author": "brooks pike",
+  "license": "ISC",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "start": ". development.env && npm run migrate && nodemon src/index.js",
+    "migrate": "node migrations/index.cjs && node migrations/runtimeSync.cjs",
+    "migrate-drop-database": "node migrations/drop-database.cjs"
+  },
+  "dependencies": {
+    "axios": "^1.2.6",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "papaparse": "^5.3.2",
+    "postgres": "^3.3.0",
+    "postgres-migrations": "^5.3.0"
+  },
+  "devDependencies": {
+    "axios-mock-adapter": "^1.21.2",
+    "nodemon": "^2.0.15"
+  }
+}
