@@ -22,6 +22,32 @@ Now we need to create the workflow to sync the database with the CSV sheet code.
 
 ## Steps
 
-1. Complete `/sync-procedure-mappings`
-2. Verify outcome with `/get-procedure-mappings`
+1. Complete `POST /sync-procedure-mappings`
+2. Verify outcome with `GET /procedure-mappings`
+3. Verify encounter scoping with `GET /encounters?procedure_identifier=APPENDECTOMY`
 3. Think about feature from the end users' perspective and ensure that all needs are met
+  - Fellow eng
+  - Sheet owners
+
+
+## Resources
+
+Boot up:
+
+  `make start-dev`
+
+Clean boot up
+
+  `make start-dev-reboot`
+
+Run sync - Runs the syncing script
+
+  `make run-sync`
+
+Get mappings (via cli)
+
+  `make get-mappings`
+
+Get encounters (via cli)
+
+  `make get-encounters procedure_identifer=APPENDECTOMY`
