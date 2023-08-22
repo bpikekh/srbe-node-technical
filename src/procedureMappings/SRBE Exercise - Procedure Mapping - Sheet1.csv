@@ -1,9 +1,10 @@
-Procedure Name,Outpatient Code,Inpatient Code
-Appendectomy,"44970
+Procedure Name,Identifier,Outpatient Code,Inpatient Code
+Appendectomy,APPENDECTOMY,"44970
 44960
 44950","0DBJ*
 0DTJ*"
-Hemorrhoidectomy,"46255
+TBD,,,
+Hemorrhoidectomy,HEMORRHOIDECTOMY,"46255
 46257
 46258
 46260
@@ -13,4 +14,4 @@ Hemorrhoidectomy,"46255
 06BY4ZC
 
 "
-Total Gastrectomy,43621,0DT6*
+Total Gastrectomy,TOTAL_GASTRECTOMY,43621,0DT6*

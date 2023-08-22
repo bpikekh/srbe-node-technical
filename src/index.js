@@ -1,6 +1,7 @@
 import express from 'express';
 import asyncHandler from 'express-async-handler';
 import * as procedureMappings from './procedureMappings/procedureMappings.js';
+import { getEncountersByProcedureIdentifier } from './encounters.js';
 
 const { NODE_ENV, PORT } = process.env;
 
@@ -17,12 +18,18 @@ app.post('/sync-procedure-mappings', asyncHandler(async (req, res) => {
 }));
 
 // Testing endpoint
-// Use this to test the outcome
+// Use this to test if the procedure_mapping table is properly synced
 app.get('/procedure-mappings', asyncHandler(async (req, res) => {
   const data = await procedureMappings.get();
   res.send(data);
 }));
 
+// Testing endpoint 2
+// Use this to test our ability to query by procedure identifier
+app.get('/encounters', asyncHandler(async (req, res) => {
+  const data = await getEncountersByProcedureIdentifier(req.query);
+  res.send(data);
+}));
 
 // Error Handler
 app.use((e, req, res, next) => {

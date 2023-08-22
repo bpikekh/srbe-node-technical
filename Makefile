@@ -10,3 +10,7 @@ run-sync:
 
 get-mappings:
 	curl --location --request GET 'http://localhost:3001/procedure-mappings'
+
+procedure_identifier ?=
+get-encounters:
+	curl --location --request GET  'http://localhost:3001/encounters?procedure_identifier=$(procedure_identifier)'

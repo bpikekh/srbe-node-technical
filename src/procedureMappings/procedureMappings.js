@@ -7,11 +7,15 @@ const readFileAsync = promisify(fs.readFile);
 
 
 export async function get() {
-  const procedureMappings = await sql`
-    select * 
+  const procedureMappings = (await sql`
+    select identifier, nicename, cpts, icd_10_partials
     from procedure_mapping
-  `;
-  return procedureMappings;
+  `).sort((a, b) => a.identifier < b.identifier ? -1 : 1);
+  return {
+    count: procedureMappings.length,
+    nicenames: procedureMappings.map(({ nicename }) => nicename),
+    data: procedureMappings
+  };
 }
 
 export async function runSync() {
@@ -26,10 +30,14 @@ export async function sync(procedureMappings = []) {
 
     console.log('Syncing procedure_mappings . . .');
 
+    
     // WORK HERE
+
 
   } catch(err) {
       console.log(err);
       throw err;
+  } finally {
+    console.log('DONE!');
   }
 }
